@@ -2143,7 +2143,7 @@ final class MultiPathImpl extends MultiVertexGeometryImpl {
 			for (int ipath = 0; ipath < pathCount; ipath++) {
 				double area = m_cachedRingAreas2D.read(ipath);
 				if (ipath == 0)
-					firstSign = area > 0 ? 1 : -1;
+					firstSign = Math.signum(area);
 				if (area * firstSign > 0.0)
 					m_pathFlags.setBits(ipath,
 							(byte) PathFlags.enumOGCStartPolygon);
